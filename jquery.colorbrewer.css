@@ -1,0 +1,30 @@
+.colorbrewer {
+    background: none;
+    border: 1px black solid;
+    cursor: pointer;
+}
+
+.colorbrewer-picker {
+    width: 500px;
+    height: 500px;
+    border: 1px rgba(0,0,0,0.5) solid;
+    background: rgba(0,0,0,0.3)
+}
+
+.brew {
+    float: left;
+    list-style: none;
+    padding-left: 5px;
+    margin: 5px 0;
+}
+
+.brew > li {
+    height: 1em;
+    width: 2em;
+    cursor: pointer;
+}
+
+.brew > li:hover, .brew > li.selected {
+    outline: 2px solid white;
+
+}

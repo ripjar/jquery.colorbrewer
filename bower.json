@@ -1,0 +1,11 @@
+{
+  "name": "jquery-colorbrewer",
+  "version": "0.1.0",
+  "homepage": "https://github.com/ripjar/tophat",
+  "authors": [
+    "jivings <james.ivings@ripjar.com>"
+  ],
+  "description": "Simple bootstrap colour picker using colorbrewer coloirs",
+  "main": "jquery.colorbrewer.js",
+  "license": "MIT"
+}
