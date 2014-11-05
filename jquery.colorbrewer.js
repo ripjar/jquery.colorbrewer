@@ -89,7 +89,8 @@
 
           accept: function () {
             this.$el
-              .val(this.$picker.find('.selected').data('color'));
+              .val(this.$picker.find('.selected').data('color'))
+              .change();
             return this.hide();
           },
 
