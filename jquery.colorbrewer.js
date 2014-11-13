@@ -25,14 +25,29 @@
               this.$el.addClass('colorbrewer');
               this.$picker.addClass('.colorbrewer-picker');
               this.populate();
-              this.listen();
+              this.$el.on('click', $.proxy(this.show, this));
+              this.events = {
+                'click li': $.proxy(this.selectColor, this),
+                'click .accept': $.proxy(this.accept, this),
+                'click .cancel': $.proxy(this.cancel, this)
+              }
           },
 
-          listen: function () {
-            this.$el.on('click', $.proxy(this.show, this));
-            this.$picker.on('click', 'li', $.proxy(this.selectColor, this));
-            this.$picker.on('click', '.accept', $.proxy(this.accept, this));
-            this.$picker.on('click', '.cancel', $.proxy(this.cancel, this));
+          delegateEvents: function () {
+            var $picker = this.$picker;
+            $.each(this.events, function (evt, action) {
+              var e = evt.split(' ');
+              $picker.on(e[0], e[1], action);
+            });
+            return this;
+          },
+
+          undelegateEvents: function () {
+            var $picker = this.$picker;
+            $.each(this.events, function (evt, action) {
+              var e = evt.split(' ');
+              $picker.off(e[0], e[1], action);
+            })
             return this;
           },
 
@@ -84,6 +99,7 @@
             else {
               this.$picker.hide();
             }
+            this.undelegateEvents();
             return this;
           },
 
@@ -102,6 +118,7 @@
             else {
               this.$picker.show();
             }
+            this.delegateEvents();
             return this;
           },
 
