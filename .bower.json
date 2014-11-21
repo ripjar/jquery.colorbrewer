@@ -1,0 +1,21 @@
+{
+  "name": "jquery-colorbrewer",
+  "version": "1.0.2",
+  "homepage": "https://github.com/Jivings/jquery.colorbrewer",
+  "authors": [
+    "jivings <james.ivings@ripjar.com>"
+  ],
+  "description": "Simple bootstrap colour picker using colorbrewer coloirs",
+  "main": "jquery.colorbrewer.js",
+  "license": "MIT",
+  "_release": "1.0.2",
+  "_resolution": {
+    "type": "version",
+    "tag": "1.0.2",
+    "commit": "beee25d1b117394529e65fecce41209da095b972"
+  },
+  "_source": "git://github.com/Jivings/jquery.colorbrewer.git",
+  "_target": "~1.0.2",
+  "_originalSource": "jquery-colorbrewer",
+  "_direct": true
+}
