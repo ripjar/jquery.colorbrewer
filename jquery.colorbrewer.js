@@ -13,8 +13,8 @@
           this.settings = $.extend( {}, defaults, options );
           this._defaults = defaults;
           this._name = pluginName;
-          this.$picker = $(this.settings.container);
-          this.$preview = $(this.settings.preview);
+          this.$picker = this.$el.find(this.settings.container);
+          this.$preview = this.$el.find(this.settings.preview);
           this.init();
         }
 
