@@ -66,23 +66,22 @@
             var self = this;
             var $target = this.settings.modal ? this.$picker.find('.modal-body') : this.$picker;
             // if colours are already in the modal, don't do it again
-            if (!$target.find('.colors').length)
-              $.each(this.settings.colors, function (name, val) {
-                var $brew = $('<ul>')
-                    .addClass('colors brew ' + name)
-                    .appendTo($target);
+            if (!$target.find('.colors').length) {
 
-                var num = val[9] ? 9 : 8;
-                $.each(val[num], function (i, hex) {
+              var $brew = $('<ul>')
+                .addClass('colors brew')
+                .appendTo($target);
 
-                   var $color = $('<li>')
-                       .addClass('q' + i + '-' + num)
-                       .data('color', hex)
-                       .css('background-color', hex)
-                       .appendTo($brew);
-                });
+              $.each(this.settings.colors, function (name, hex) {
+
+                var $color = $('<li>')
+                  .attr('data-color', hex)
+                  .css('background-color', hex)
+                  .appendTo($brew);
 
               });
+
+            }
             return this.preview(this.$el.val());
           },
 
@@ -103,7 +102,9 @@
           },
 
           accept: function () {
-            var color = this.$picker.find('.selected').data('color');
+            var color = this.$picker
+              .find('.selected')
+              .data('color');
             this.$el
               .val(color)
               .change();
@@ -119,6 +120,12 @@
             else {
               this.$picker.show();
             }
+            this.$picker
+              .find('.colors li')
+              .removeClass('selected');
+            this.$picker
+              .find('[data-color="' + this.oldValue + '"]')
+              .addClass('selected');
             this.delegateEvents();
             return this;
           },
